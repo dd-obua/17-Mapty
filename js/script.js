@@ -49,7 +49,7 @@ if (navigator.geolocation)
               minWidth: 100,
               autoClose: false,
               closeOnclick: false,
-              className: running - popup,
+              className: 'running-popup',
             })
           )
           .setPopupContent('Workout')

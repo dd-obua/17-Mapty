@@ -28,15 +28,15 @@ body {
   height: 100vh;
   overscroll-behavior-y: none;
   background: #fff;
-  padding: 2.5rem;
+  padding: 2rem;
 
   display: flex;
 }
 
 .sidebar {
-  flex-basis: 50rem;
+  flex-basis: 40rem;
   background: var(--color-dark--1);
-  padding: 3rem 5rem 4rem 5rem;
+  padding: 2rem;
 
   display: flex;
   flex-direction: column;

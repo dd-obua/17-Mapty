@@ -25,6 +25,8 @@ const inputDuration = select('.form__input--duration');
 const inputCadence = select('.form__input--cadence');
 const inputElevation = select('.form__input--elevation');
 
+// let map, mapEvent;
+
 class App {
   #map;
   #mapEvent;
@@ -44,15 +46,15 @@ class App {
     const { latitude, longitude } = position.coords;
     const coords = [latitude, longitude];
 
-    map = L.map('map').setView(coords, 13); // 13 is the zoom level
+    this.#map = L.map('map').setView(coords, 13); // 13 is the zoom level
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    }).addTo(map);
+    }).addTo(this.#map);
 
-    map.on('click', function (event) {
-      mapEvent = event;
+    this.#map.on('click', function (event) {
+      this.#mapEvent = event;
       form.classList.remove('hidden');
       inputDistance.focus();
     });

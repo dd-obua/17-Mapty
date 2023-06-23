@@ -111,6 +111,20 @@ class App {
   _newWorkout(event) {
     event.preventDefault();
 
+    // Get data from the form
+
+    // Check if data is valid
+
+    // If workout is running, create running object
+
+    // If workout is cycling, create cycling object
+
+    // Add new object to workout array
+
+    // Render workout on map as marker
+
+    // Clear input fields and hide form
+
     const { lat, lng } = this.#mapEvent.latlng;
     L.marker([lat, lng])
       .addTo(this.#map)

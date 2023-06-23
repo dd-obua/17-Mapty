@@ -26,6 +26,8 @@ const inputCadence = select('.form__input--cadence');
 const inputElevation = select('.form__input--elevation');
 
 class Workout {
+  date = new Date();
+
   constructor(coords, distance, duration) {
     this.coords = coords;
     this.distance = distance;

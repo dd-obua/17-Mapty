@@ -14,3 +14,5 @@ const months = [
   'November',
   'December',
 ];
+
+const select = selector => document.querySelector(selector);

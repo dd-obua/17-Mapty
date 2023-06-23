@@ -30,15 +30,15 @@ class Workout {
   id = (new Date() + '').slice(-10);
 
   constructor(coords, distance, duration) {
-    this.coords = coords;
-    this.distance = distance;
-    this.duration = duration;
+    this.coords = coords; // [lat, log]
+    this.distance = distance; // in km
+    this.duration = duration; // in min
   }
 }
 
 class Running extends Workout {
   constructor(coords, distance, duration, cadence) {
-    super(coords, distance, duration);
+    super(coords, distance, duration); //
     this.cadence = cadence;
     this.calcPace();
   }
@@ -62,6 +62,7 @@ class Cycling extends Workout {
   }
 }
 
+// Application Architecture
 class App {
   #map;
   #mapEvent;

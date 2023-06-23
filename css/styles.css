@@ -47,3 +47,10 @@ body {
   align-self: center;
   margin-bottom: 4rem;
 }
+
+.workouts {
+  height: 77vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  list-style: none;
+}

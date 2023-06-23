@@ -62,7 +62,7 @@ body {
 .form {
   background: var(--color-dark--2);
   border-radius: 5px;
-  padding: 1.5rem 2.75rem;
+  padding: 1rem 2.25rem;
   margin-bottom: 1.75rem;
 
   display: grid;
@@ -121,3 +121,4 @@ body {
   height: 100%;
   background: var(--color-light--1);
 }
+

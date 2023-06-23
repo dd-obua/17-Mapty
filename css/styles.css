@@ -32,3 +32,12 @@ body {
 
   display: flex;
 }
+
+.sidebar {
+  flex-basis: 50rem;
+  background: var(--color-dark--1);
+  padding: 3rem 5rem 4rem 5rem;
+
+  display: flex;
+  flex-direction: column;
+}

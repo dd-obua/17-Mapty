@@ -24,3 +24,16 @@ const inputDistance = select('.form__input--distance');
 const inputDuration = select('.form__input--duration');
 const inputCadence = select('.form__input--cadence');
 const inputElevation = select('.form__input--elevation');
+
+if (navigator.geolocation)
+  navigator.geolocation.getCurrentPosition(
+    function (position) {
+      console.log(position);
+      const { latitude, longitude } = position.coords;
+      console.log(latitude, longitude);
+      console.log(`https://www.google.com/maps/@${latitude},${longitude}`);
+    },
+    function () {
+      alert('Could not get your position.');
+    }
+  );

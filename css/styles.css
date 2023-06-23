@@ -54,3 +54,7 @@ body {
   overflow-x: hidden;
   list-style: none;
 }
+
+.workouts::-webkit-scrollbar {
+  width: 0;
+}

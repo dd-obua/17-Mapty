@@ -11,10 +11,42 @@
 </head>
 
 <body>
-  <div class="sidebar">
+  <section class="sidebar">
     <img src="./img/logo.png" alt="Logo" class="logo">
-  </div>
-  <div id="map"></div>
+
+    <div class="workouts">
+      <form action="#" class="form hidden">
+        <p class="form__row">
+          <label class="form__label">Type</label>
+          <select class="form__input form__input--type">
+            <option value="running">Running</option>
+            <option value="cycling">Cycling</option>
+          </select>
+        </p>
+        <p class="form__row">
+          <label class="form__label">Distance</label>
+          <input class="form__input form__input--distance" placeholder="km" />
+        </p>
+        <p class="form__row">
+          <label class="form__label">Duration</label>
+          <input class="form__input form__input--duration" placeholder="min" />
+        </p>
+        <p class="form__row">
+          <label class="form__label">Cadence</label>
+          <input class="form__input form__input--cadence" placeholder="step/min" />
+        </p>
+        <p class="form__row form__row--hidden">
+          <label class="form__label">Elev Gain</label>
+          <input class="form__input form__input--elevation" placeholder="meters" />
+        </p>
+        <button class="form__btn">OK</button>
+      </form>
+      <ul>
+
+      </ul>
+    </div>
+  </section>
+  <section id="map"></section>
 </body>
 
 </html>

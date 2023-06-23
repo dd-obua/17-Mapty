@@ -69,10 +69,11 @@ form.addEventListener('submit', function (event) {
     .setPopupContent('Workout')
     .openPopup();
 
-  inputDistance.value = '';
-  inputDuration.value = '';
-  inputCadence.value = '';
-  inputElevation.value = '';
+  inputDistance.value =
+    inputDuration.value =
+    inputCadence.value =
+    inputElevation.value =
+      '';
 
   form.classList.add('hidden');
 });

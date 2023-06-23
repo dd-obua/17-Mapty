@@ -63,6 +63,7 @@ class App {
 }
 
 const app = new App();
+app._getPosition();
 
 form.addEventListener('submit', function (event) {
   event.preventDefault();

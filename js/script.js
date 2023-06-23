@@ -25,8 +25,6 @@ const inputDuration = select('.form__input--duration');
 const inputCadence = select('.form__input--cadence');
 const inputElevation = select('.form__input--elevation');
 
-// let map, mapEvent;
-
 class App {
   #map;
   #mapEvent;

@@ -66,12 +66,14 @@ const workoutList = select('.workout--list');
 class App {
   #map;
   #mapEvent;
+  #mapZoomLevel = 13;
   #workouts = [];
 
   constructor() {
     this._getPosition();
-    inputType.addEventListener('change', this._toggleElevationField);
     form.addEventListener('submit', this._newWorkout.bind(this));
+    inputType.addEventListener('change', this._toggleElevationField);
+    containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
   }
 
   _getPosition() {
@@ -89,7 +91,7 @@ class App {
 
     const originalCoords = [latitude, longitude];
 
-    this.#map = L.map('map').setView(originalCoords, 13);
+    this.#map = L.map('map').setView(originalCoords, this.#mapZoomLevel);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution:
@@ -145,7 +147,6 @@ class App {
         return alert('Inputs have to be positive numbers.');
 
       workout = new Running(clickedCoords, distance, duration, cadence);
-      console.log(workout);
     }
 
     // If the workout is cycling, create cycling object
@@ -160,7 +161,6 @@ class App {
         return alert('Inputs have to be positive numbers.');
 
       workout = new Cycling(clickedCoords, distance, duration, elevation);
-      console.log(workout);
     }
 
     // Add the new object to the workouts array
@@ -242,6 +242,19 @@ class App {
     `;
 
     workoutList.innerHTML += html;
+  }
+
+  _moveToPopup(event) {
+    const workoutEl = event.target.closest('.workout');
+    if (!workoutEl) return;
+
+    const clickedWorkout = this.#workouts.find(
+      workout => workout.id === workoutEl.dataset.id
+    );
+    this.#map.setView(clickedWorkout.coords, this.#mapZoomLevel, {
+      animate: true,
+      pan: { duration: 1 },
+    });
   }
 }
 

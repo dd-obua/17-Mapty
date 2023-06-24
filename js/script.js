@@ -112,9 +112,7 @@ class App {
       inputElelvation.value =
         '';
 
-    form.style.display = 'none';
     form.classList.add('hidden');
-    setTimeout(() => (form.style.display = 'flex'), 1000);
   }
 
   _toggleElevationField() {

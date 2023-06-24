@@ -54,8 +54,7 @@ class App {
   #map;
   #mapEvent;
   #workouts = [];
-  #lat;
-  #lng;
+  #clickedCoords;
 
   constructor() {
     this._getPosition();
@@ -108,9 +107,8 @@ class App {
     const type = inputType.value;
     const distance = +inputDistance.value;
     const duration = +inputDuration.value;
-    this.#lat = this.#mapEvent.latlng.lat;
-    this.#lng = this.#mapEvent.latlng.lng;
-    // const { lat, lng } = this.#mapEvent.latlng;
+    const { lat, lng } = this.#mapEvent.latlng;
+    this.#clickedCoords = [lat, lng];
     let workout;
 
     // If the workout is running, create running object
@@ -124,12 +122,7 @@ class App {
       )
         return alert('Inputs have to be positive numbers.');
 
-      workout = new Running(
-        [this.#lat, this.#lng],
-        distance,
-        duration,
-        cadence
-      );
+      workout = new Running(this.#clickedCoords, distance, duration, cadence);
       console.log(workout);
     }
 
@@ -144,12 +137,7 @@ class App {
       )
         return alert('Inputs have to be positive numbers.');
 
-      workout = new Cycling(
-        [this.#lat, this.#lng],
-        distance,
-        duration,
-        elevation
-      );
+      workout = new Cycling(this.#clickedCoords, distance, duration, elevation);
       console.log(workout);
     }
 
@@ -171,7 +159,7 @@ class App {
   }
 
   renderWorkoutMarker(workout) {
-    L.marker([this.#lat, this.#lng])
+    L.marker(this.#clickedCoords)
       .addTo(this.#map)
       .bindPopup(
         L.popup({

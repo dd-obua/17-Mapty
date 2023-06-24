@@ -173,7 +173,7 @@ class App {
           className: `${workout.type}-popup`,
         })
       )
-      .setPopupContent('Workout')
+      .setPopupContent(workout.type)
       .openPopup();
   }
 }

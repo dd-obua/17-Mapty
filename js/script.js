@@ -148,7 +148,7 @@ class App {
     this.#workouts.push(workout);
 
     // Render the workout on the array as a marker
-    this.renderWorkoutMarker(workout);
+    this._renderWorkoutMarker(workout);
 
     // Render the workout on the list
 
@@ -161,7 +161,7 @@ class App {
         '';
   }
 
-  renderWorkoutMarker(workout) {
+  _renderWorkoutMarker(workout) {
     L.marker(workout.coords)
       .addTo(this.#map)
       .bindPopup(

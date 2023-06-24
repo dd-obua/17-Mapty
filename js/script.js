@@ -3,6 +3,7 @@
 class Workout {
   date = new Date();
   id = (Date.now() + '').slice(-10);
+  clicks = 0;
 
   constructor(coords, distance, duration) {
     this.coords = coords; // [lat,lng]
@@ -17,6 +18,10 @@ class Workout {
     this.description = `${this.type[0].toUpperCase()}${this.type.slice(1)} on ${
       months[this.date.getMonth()]
     } ${this.date.getDate()}`;
+  }
+
+  click() {
+    this.clicks++;
   }
 }
 
@@ -147,6 +152,7 @@ class App {
         return alert('Inputs have to be positive numbers.');
 
       workout = new Running(clickedCoords, distance, duration, cadence);
+      console.log(workout);
     }
 
     // If the workout is cycling, create cycling object
@@ -255,6 +261,8 @@ class App {
       animate: true,
       pan: { duration: 1 },
     });
+
+    clickedWorkout.click();
   }
 }
 

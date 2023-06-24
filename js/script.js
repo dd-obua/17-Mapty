@@ -15,6 +15,8 @@ class Workout {
 }
 
 class Running extends Workout {
+  type = 'running';
+
   constructor(coords, distance, duration, cadence) {
     super(coords, distance, duration);
     this.cadence = cadence;
@@ -27,6 +29,8 @@ class Running extends Workout {
 }
 
 class Cycling extends Workout {
+  type = 'cycling';
+
   constructor(coords, distance, duration, elevation) {
     super(coords, distance, elevation);
     this.elevation = elevation;
@@ -166,7 +170,7 @@ class App {
           minWidth: 100,
           autoClose: false,
           closeOnClick: false,
-          className: 'cycling-popup',
+          className: `${workout.type}-popup`,
         })
       )
       .setPopupContent('Workout')

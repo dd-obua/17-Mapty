@@ -20,9 +20,10 @@ class Workout {
     } ${this.date.getDate()}`;
   }
 
-  click() {
-    this.clicks++;
-  }
+  // NB: objects from local storage do not inherit all the properties like they did before
+  // click() {
+  //   this.clicks++;
+  // }
 }
 
 class Running extends Workout {
@@ -162,7 +163,6 @@ class App {
         return alert('Inputs have to be positive numbers.');
 
       workout = new Running(clickedCoords, distance, duration, cadence);
-      console.log(workout);
     }
 
     // If the workout is cycling, create cycling object
